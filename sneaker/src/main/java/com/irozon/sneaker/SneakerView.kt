@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.irozon.sneaker.Utils.customView
 import com.irozon.sneaker.widget.RoundedImageView
+import com.irozon.sneakersample.R
 
 internal class SneakerView(context: Context?) : LinearLayout(context) {
     init {
