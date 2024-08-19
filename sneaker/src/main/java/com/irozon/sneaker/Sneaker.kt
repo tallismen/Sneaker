@@ -8,6 +8,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.support.annotation.DrawableRes
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -19,6 +20,7 @@ import android.widget.LinearLayout
 
 import com.irozon.sneaker.interfaces.OnSneakerClickListener
 import com.irozon.sneaker.interfaces.OnSneakerDismissListener
+import com.irozon.sneakersample.R
 
 /**
  * Created by Hammad Akram on 5/24/2017.
@@ -443,8 +445,8 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
 
             sneakerView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.popup_show))
             if (mAutoHide) {
-                val handler = Handler()
-                handler.removeCallbacks(null)
+                val handler = Handler(Looper.getMainLooper())
+                handler.removeCallbacksAndMessages(null)
                 handler.postDelayed({
                     removeView(sneakerView)
                     mDismissListener?.onDismiss()
@@ -462,8 +464,8 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
 
             sneakerView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.popup_show))
             if (mAutoHide) {
-                val handler = Handler()
-                handler.removeCallbacks(null)
+                val handler = Handler(Looper.getMainLooper())
+                handler.removeCallbacksAndMessages(null)
                 handler.postDelayed({
                     removeView(sneakerView)
                     mDismissListener?.onDismiss()
